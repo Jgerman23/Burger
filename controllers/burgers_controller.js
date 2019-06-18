@@ -17,7 +17,7 @@ router.post("api/burgers", function(request, response){
     });
 });
 
-router.put("api/burgers/:id", function(request, respnse){
+router.put("api/burgers/:id", function(request, response){
     burger.update(request.params.id, function(result){
         response.json(result);
     });
