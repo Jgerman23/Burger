@@ -4,6 +4,7 @@ var burger = {
     all: function(callBack){
         orm.selectAll("burgers", function(response){
             callBack(response);
+            console.log(response);
         });
     },
     add: function(value, callBack){
