@@ -2,25 +2,28 @@ var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
 
-router.get("/", function(request, response){
-    burger.all(function(data){
-        var info = {
-            burgers: data 
-        };
-        response.render("index", info);
+router.get("/", function(req, res) {
+    res.redirect("/burgers");
+  });
+  
+  router.get("/burgers", function(req, res) {
+    burger.all(function(data) {
+      res.render("index", { burgerData: data});
     });
-});
-
-router.post("/api/burgers", function(request, response){
-    burger.add(request.body.burger_name, function(result){
-        response.json({id: result.insertId});
+  });
+  
+  router.post("/burgers/create", function(req, res) {
+    burger.add(req.body.burger_name, function(result) {
+      console.log(result);
+      res.redirect("/");
     });
-});
-
-router.put("/api/burgers/:id", function(request, response){
-    burger.update(request.params.id, function(result){
-        response.sendStatus(200);
+  });
+  
+  router.put("/burgers/:id", function(req, res) {
+    burger.update(req.params.id, function(result) {
+      console.log(result);
+      res.sendStatus(200);
     });
-});
+  });
 
 module.exports = router;

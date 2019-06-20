@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    <title>Burgers Burgers Burgers</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/assets/css/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
-    {{!-- <script src="/assets/js/script.js"></script> --}}
+    <script src="/assets/js/script.js"></script>
     {{!-- Bootstrap Css --}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,8 +21,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    <title>Burgers Burgers Burgers</title>
 </head>
 
 <body>
@@ -70,7 +69,7 @@ $("#addBurger").on("click", function(event){
         burger_name: $(".form-control").val().trim()
     };
 
-    $.ajax("/api/burgers", {
+    $.ajax("/burgers/create", {
         type: "POST",
         data: newBurger
     }).then(
@@ -80,22 +79,6 @@ $("#addBurger").on("click", function(event){
         }
     );
 });
-
-    $("#devourBtn").on("click", function(event) {
-    event.preventDefault();
-
-    var devouredId = $(this).children(".devouredId").val();
-    console.log(devouredId)
-    $.ajax({
-        method: "PUT",
-        url: "/api/burgers/" + devouredId
-    }).then(function(data) {
-        // reload page to display devoured burger in proper column
-        location.reload();
-    });
-
-    });
-
 
 </script>
 </html>
