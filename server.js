@@ -5,10 +5,10 @@ var body_parser = require("body-parser");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-app.use(body_parser.urlencoded({extended: true}));
-app.use(body_parser.json());
-
 app.use(express.static("public"));
+
+app.use(body_parser.urlencoded({extended: false}));
+app.use(body_parser.json());
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");

@@ -11,15 +11,15 @@ router.get("/", function(request, response){
     });
 });
 
-router.post("api/burgers", function(request, response){
+router.post("/api/burgers", function(request, response){
     burger.add(request.body.burger_name, function(result){
         response.json({id: result.insertId});
     });
 });
 
-router.put("api/burgers/:id", function(request, response){
+router.put("/api/burgers/:id", function(request, response){
     burger.update(request.params.id, function(result){
-        response.json(result);
+        response.sendStatus(200);
     });
 });
 
