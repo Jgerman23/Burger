@@ -1,3 +1,14 @@
 body{
-    background-image: url("../images/DiningRoom.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url("../images/DiningRoom.jpg");
+    background-size: cover;
+}
+
+h2{
+    text-align: center;
+    font-weight: bolder !important; 
+    color: whitesmoke;
+}
+
+#devourBtn{
+    float: right;
 }
