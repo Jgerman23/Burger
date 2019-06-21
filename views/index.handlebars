@@ -1,33 +1,68 @@
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">Burgers To Eat</h5>
-        <ul class="list-group">
-          {{#each burgerData}} {{#unless this.devoured}}
-            {{> burgers/burger-block devoured=false}}
-          {{/unless}} {{/each}}
-        </ul>
+<div class="container">
+  <div class="text-center">
+  </div>
+
+  <h1 class="text-center">The Burgery</h1>
+  <div class="row">
+
+    <div class="col-5 burger-box" id="not-devoured">
+
+      <div class="card">
+        <h5 class="card-header text-center">Burgers to Eat</h5>
+        <div class="card-body">
+          <ul class="list-group">
+            {{#each burgers}}
+            {{#unless devoured}}
+            {{> burgers/burgerNotDevoured-block}}
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
       </div>
+
+    </div>
+
+    <div class="col-2" id="blank">
+    </div>
+
+    <div class="col-5 burger-box" id="devoured">
+
+      <div class="card">
+        <h5 class="card-header text-center">Devoured Burgers</h5>
+        <div class="card-body">
+          <ul class="list-group">
+            {{#each burgers}}
+            {{#if devoured}}
+            {{> burgers/burgerDevoured-block}}
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
-  
-  
-  
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-center">Devoured Burgers</h5>
-        <ul class="list-group">
-          {{#each burgerData}} {{#if this.devoured}}
-          <li class="list-group-item">
-            <p>
-              {{this.id}}. {{this.burger_name}}
-            </p>
-          </li>
-          {{/if}} {{/each}}
-        </ul>
+  <br><br>
+
+
+  <!-- Row for textbox to enter in new burger -->
+  <footer>
+    <div class="row justify-content-center bottom">
+      <div class="col-8">
+        <div class="card text-center">
+          <h5 class="card-header">
+            Add a Burger
+          </h5>
+          <div class="card-body">
+            <form class="create-form">
+              <div class="form-group">
+                <input class="form-control form-control-lg" type="text" name="burger_name" id="burgerInfo"
+                  placeholder="Type in a burger here!">
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg burger-button">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+  </footer>
