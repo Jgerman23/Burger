@@ -1,18 +1,36 @@
-$(document).ready(function() {
-    
-    $("#devourBtn").on("click", function(event) {
-    event.preventDefault();
+$(function() {
+	$(".create-form").on("submit", function(event) {
+		event.preventDefault();
 
-    var burger_id = $(this).children(".burger_id").val();
-    console.log(burger_id)
-    $.ajax({
-        method: "PUT",
-        url: "/burgers/" + burger_id
-    }).then(function(data) {
-        // reload page to display devoured burger in proper column
-        location.reload();
-    })
+		var newBurger = {
+			burger_name: $("#burgerInfo").val().trim()
+		};
 
-    })
+		$.ajax("/api/burgers", {
+			type: "POST",
+			data: newBurger
+		}).then(
+			function() {
+				console.log("Created a new burger.");
+				location.reload();
+			}
+		);
+	});
+
+	$(".devourBurgerButton").on("click", function(event) {
+		var id = $(this).data("id")
+		var changeBurger = {
+			devoured: 0
+		};
+
+		$.ajax("/api/burgers/" + id, {
+			type: "PUT",
+			data: changeBurger
+		}).then(
+			function () {
+				console.log("Updated burger status.");
+				location.reload();
+			}
+		);
+	});
 });
-

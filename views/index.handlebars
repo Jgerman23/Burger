@@ -5,12 +5,7 @@
         <h5 class="card-title text-center">Burgers To Eat</h5>
         <ul class="list-group">
           {{#each burgerData}} {{#unless this.devoured}}
-          <li class="list-group-item" id="devouredId">
-            <p>
-              {{this.id}}. {{this.burger_name}}
-             <button name="{{this.id}}" type="button" id="devourBtn" class="btn btn-info">Devour!</button>
-            </p>
-          </li>
+            {{> burgers/burger-block devoured=false}}
           {{/unless}} {{/each}}
         </ul>
       </div>
