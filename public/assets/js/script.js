@@ -17,7 +17,7 @@ $(function() {
 		);
 	});
 
-	$(".devourBurgerButton").on("click", function(event) {
+	$("#devourBurgerButton").on("click", function(event) {
 		var id = $(this).data("id")
 		var changeBurger = {
 			devoured: 0

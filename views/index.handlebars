@@ -1,12 +1,17 @@
 <div class="container">
-  <div class="text-center">
+
+  <div class="text-center"></div>
+
+  <div class="row">
+    <h1 class="display-4 text-center">The Burgery
+      <img src="/assets/images/burger_gif.gif" alt="">
+    </h1>
   </div>
 
-  <h1 class="text-center">The Burgery</h1>
+  <br><br>
+
   <div class="row">
-
-    <div class="col-5 burger-box" id="not-devoured">
-
+    <div class="col-sm-6 burger-box" id="not-devoured">
       <div class="card">
         <h5 class="card-header text-center">Burgers to Eat</h5>
         <div class="card-body">
@@ -19,14 +24,12 @@
           </ul>
         </div>
       </div>
-
     </div>
 
-    <div class="col-2" id="blank">
-    </div>
+    {{!-- <div class="col-2" id="blank">
+    </div> --}}
 
-    <div class="col-5 burger-box" id="devoured">
-
+    <div class="col-sm-6 burger-box" id="devoured">
       <div class="card">
         <h5 class="card-header text-center">Devoured Burgers</h5>
         <div class="card-body">
@@ -39,16 +42,14 @@
           </ul>
         </div>
       </div>
-
     </div>
   </div>
+
   <br><br>
 
-
-  <!-- Row for textbox to enter in new burger -->
   <footer>
     <div class="row justify-content-center bottom">
-      <div class="col-8">
+      <div class="col-6">
         <div class="card text-center">
           <h5 class="card-header">
             Add a Burger
